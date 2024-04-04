@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Firebase DB</string>
+
+    // add fragment views and buttons
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="age_hint">Age</string>
+    <string name="gender_hint">Gender</string>
+    <string name="addbtn">Add</string>
+    <string name="cancelbtn">Cancel</string>
+
 </resources>

@@ -17,4 +17,8 @@ class MainActivity : AppCompatActivity() {
         database = Firebase.database.reference
         
     }
+
+    override fun onResume() {
+        super.onResume()
+    }
 }
