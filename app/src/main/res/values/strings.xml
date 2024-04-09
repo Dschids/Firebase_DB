@@ -9,4 +9,6 @@
     <string name="addbtn">Add</string>
     <string name="cancelbtn">Cancel</string>
 
+    <string name="my_set_file">FireBase_DB_SP</string>
+
 </resources>

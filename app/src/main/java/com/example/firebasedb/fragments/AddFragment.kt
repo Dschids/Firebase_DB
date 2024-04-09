@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.example.firebasedb.Person
 import com.example.firebasedb.R
 import com.example.firebasedb.databinding.FragmentAddBinding
@@ -23,6 +25,7 @@ class AddFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         _add_binding = FragmentAddBinding.inflate(inflater, container, false)
         val view = _add_binding.root
@@ -39,6 +42,8 @@ class AddFragment : Fragment() {
                 else -> id = "$count"
             }
             addDataToFirebase(id)
+
+            findNavController().navigate(R.id.action_addFragment_to_listFragment)
         }
 
         return view
