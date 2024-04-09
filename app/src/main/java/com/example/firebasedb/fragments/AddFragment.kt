@@ -1,5 +1,6 @@
 package com.example.firebasedb.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,6 +33,7 @@ class AddFragment : Fragment() {
 
         database = Firebase.database.reference
 
+        var SP = this.activity?.getSharedPreferences("my_file", Context.MODE_PRIVATE)
 
         _add_binding.btnAdd.setOnClickListener {
             count += 1

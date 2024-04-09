@@ -23,6 +23,7 @@ class ListFragment : Fragment() {
 
     private lateinit var _list_binding: FragmentListBinding
     private lateinit var database: DatabaseReference
+    var users = ArrayList<Person>()
 
     val changeListener: ValueEventListener = object: ValueEventListener{
         override fun onDataChange(snapshot: DataSnapshot) {
@@ -53,7 +54,7 @@ class ListFragment : Fragment() {
         }
 
         // set the adapter to the ListAdapter I made
-        val adapter = ListAdapter()
+        val adapter = ListAdapter(this, R.layout.custom_row, users)
         // create a recyclerview variable for ease of use (don't have to keep typing _binding.rvlist)
         val recyclerView = _list_binding.rvList
         recyclerView.adapter = adapter

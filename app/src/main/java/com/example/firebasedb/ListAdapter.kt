@@ -1,42 +1,37 @@
 package com.example.firebasedb
 
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firebasedb.databinding.CustomRowBinding
 
 
-class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+class ListAdapter (var ctx: Context, var ourResource: Int,
+                       var items: ArrayList<Person>): ArrayAdapter<Person>(ctx, ourResource, items){
 
-    private var userList = ArrayList<Person>()
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
+        val layoutInflater = LayoutInflater.from(ctx)
+        val view = layoutInflater.inflate(ourResource, null)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemBinding = CustomRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(itemBinding)
+        // go to layout and get links to widgets, use view we just created
+        val firstName = view.findViewById<TextView>(R.id.tvFirstName)
+        val lastName = view.findViewById<TextView>(R.id.tvLastName)
+        val gender = view.findViewById<TextView>(R.id.tvGender)
+        val age = view.findViewById<TextView>(R.id.tvAge)
 
+        // asign data
+        firstName.text = items[position].firstName
+        lastName.text = items[position].lastName
+        gender.text = items[position].gender
+        age.text = items[position].age
 
+        return view
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = userList[position]
-        holder.bind(currentItem)
-    }
-
-    override fun getItemCount(): Int {
-        return userList.size
-    }
-    class MyViewHolder(val _binding: CustomRowBinding): RecyclerView.ViewHolder(_binding.root){
-        fun bind(ourItem: Person){
-            _binding.tvGender.text = ourItem.gender.toString()
-            _binding.tvFirstName.text = ourItem.firstName
-            _binding.tvLastName.text = ourItem.lastName
-            _binding.tvAge.text = ourItem.age.toString()
-        }
-    }
-
-    fun setData (user: ArrayList<Person>){
-        this.userList = user
-        notifyDataSetChanged()
-    }
 }
