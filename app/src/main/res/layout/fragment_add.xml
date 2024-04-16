@@ -32,23 +32,25 @@
         android:id="@+id/etGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/gender_hint"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/etFirstName"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
 
     <EditText
         android:id="@+id/etAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/age_hint"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/etGender"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etGender" />
 
     <Button
         android:id="@+id/btnAdd"
